@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+typedef long long ll;
+int main() {
+
+ll n;
+cin>>n;
+//int b[3]={0};
+ll pr[n+2];
+for(ll i=2;i<=n+1;i++)
+pr[i]=1;;
+//pr[1]=2;
+for(ll i=2;i<=n+1;i++)
+if(pr[i]==1)
+{
+    for(ll j=i*i;j<=n+1;j+=i)
+    pr[j]=2;
+}
+//cout<<"prime numbers are";
+if(n<=2)
+cout<<"1\n";
+else
+cout<<"2\n";
+for(ll i=2;i<=n+1;i++)
+cout<<pr[i]<<" ";
+}
