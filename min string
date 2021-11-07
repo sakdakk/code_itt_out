@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+typedef long long ll;
+int find(char c,ll a[])
+{int k=int(c);
+//cout<<k<<"\n";
+    for(ll i=97;i<k;i++)
+   { if(a[i]>0)
+    return 0;}
+    return 1;
+}
+int main() {
+string s;
+cin>>s;
+
+stack<char>t;
+string u;
+ll a[123]={0};
+for(ll i=0;i<s.length();i++)
+a[s[i]]++;
+for(ll i=0;i<s.length();i++)
+{
+   t.push(s[i]) ;
+   a[s[i]]--;
+   while(1)
+   {
+       if(t.empty())
+       break;
+       if(find(t.top(),a)==1)
+       {
+           u+= t.top();
+           t.pop();
+       }
+       else
+       break;
+   }
+   
+}
+while(!(t.empty()))
+{
+    u+=t.top();
+    t.pop();
+}
+cout<<u<<"\n";
+}
